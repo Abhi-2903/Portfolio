@@ -44,7 +44,7 @@ const StartMenu = ({ menuControl }: StartMenuProps) => {
 
   const handleOpenLinkedin = () => {
     window.open(
-      "https://www.linkedin.com/in/poh-wei-pin-7b9061183/",
+      "https://www.linkedin.com/in/abhimanyu-chachan/",
       "_blank",
       "noreferrer"
     );

@@ -8,7 +8,7 @@ import paste from "../../assets/toolbar/paste.png";
 import undo from "../../assets/toolbar/undo.png";
 import check from "../../assets/toolbar/check.png";
 import spelling from "../../assets/toolbar/spelling.png";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import React from "react";
 import { AppDirectory } from "@/appData";
@@ -20,6 +20,7 @@ import { RootState } from "@/types";
 const Outlook = () => {
   const currTabID = useSelector((state: RootState) => state.tab.id);
   const [from, setFrom] = useState("");
+  const [copied, setCopied] = useState(false);
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const API_KEY = process.env.NEXT_PUBLIC_MAILGUN_API;
@@ -30,19 +31,14 @@ const Outlook = () => {
   const emailRef = React.useRef<HTMLInputElement>(null);
   const subjectRef = React.useRef<HTMLInputElement>(null);
   const messageRef = React.useRef<HTMLTextAreaElement>(null);
+
   const sendEmail = async () => {
-    if (!from || !subject || !message) {
-      return;
-    }
-    
+    if (!from || !subject || !message) return;
     try {
       await axios({
         method: "post",
         url: `https://api.mailgun.net/v3/pohwp.dev/messages`,
-        auth: {
-          username: "api",
-          password: API_KEY,
-        },
+        auth: { username: "api", password: API_KEY },
         params: {
           from: FROM_EMAIL,
           to: TO_EMAIL,
@@ -50,8 +46,6 @@ const Outlook = () => {
           text: "From: " + from + "\nMessage: " + message,
         },
       });
-      
-      // Success handling
       const newTab = {
         ...AppDirectory.get(7),
         id: uuidv4(),
@@ -60,8 +54,6 @@ const Outlook = () => {
         message: "Your message has been sent! I will get back to you soon!",
       };
       store.dispatch(addTab(newTab));
-      
-      // Clear form
       setFrom("");
       setSubject("");
       setMessage("");
@@ -69,7 +61,6 @@ const Outlook = () => {
       if (subjectRef.current) subjectRef.current.value = "";
       if (messageRef.current) messageRef.current.value = "";
     } catch (error) {
-      // Show error to user
       const errorTab = {
         ...AppDirectory.get(5),
         id: uuidv4(),
@@ -80,6 +71,51 @@ const Outlook = () => {
       store.dispatch(addTab(errorTab));
     }
   };
+
+  const handleCopy = () => {
+    const selectedText = window.getSelection()?.toString();
+    if (selectedText) {
+      navigator.clipboard.writeText(selectedText).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      });
+    }
+  };
+
+  const handlePaste = async () => {
+    const clipText = await navigator.clipboard.readText();
+    const textarea = messageRef.current;
+    if (!textarea) return;
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const before = textarea.value.substring(0, start);
+    const after = textarea.value.substring(end);
+    textarea.value = before + clipText + after;
+    const newPos = start + clipText.length;
+    textarea.selectionStart = textarea.selectionEnd = newPos;
+    setMessage(textarea.value);
+    textarea.focus();
+  };
+  const handleCut = () => {
+  const textarea = messageRef.current;
+  if (!textarea) return;
+
+  const start = textarea.selectionStart;
+  const end = textarea.selectionEnd;
+
+  if (start === end) return; // no selection, do nothing
+
+  const selectedText = textarea.value.substring(start, end);
+
+  navigator.clipboard.writeText(selectedText).then(() => {
+    const before = textarea.value.substring(0, start);
+    const after = textarea.value.substring(end);
+    textarea.value = before + after;
+    textarea.selectionStart = textarea.selectionEnd = start;
+    setMessage(textarea.value);
+    textarea.focus();
+  });
+};
 
   return (
     <div className={styles.main}>
@@ -95,10 +131,7 @@ const Outlook = () => {
             style={
               from !== "" && subject !== "" && message !== ""
                 ? { margin: "0 4px" }
-                : {
-                    margin: "0 4px",
-                    filter: "grayscale(100%) brightness(0.9)",
-                  }
+                : { margin: "0 4px", filter: "grayscale(100%) brightness(0.9)" }
             }
             alt="send"
             width={40}
@@ -116,6 +149,7 @@ const Outlook = () => {
             width={25}
             height={30}
             src={cut.src}
+            onClick={handleCut}
           />
           <p>Cut</p>
         </div>
@@ -125,6 +159,7 @@ const Outlook = () => {
             alt="copy"
             width={28}
             height={30}
+            onClick={handleCopy}
             src={copy.src}
           />
           <p>Copy</p>
@@ -135,6 +170,7 @@ const Outlook = () => {
             alt="paste"
             width={28}
             height={30}
+            onClick={handlePaste}
             src={paste.src}
           />
           <p>Paste</p>
@@ -205,24 +241,20 @@ const Outlook = () => {
               disabled
               id="text21"
               type="text"
-              value="Poh Wei Pin (pohwp99@gmail.com)"
+              value="Abhimanyu Chachan (abhimanyuchachan9@gmail.com)"
             />
             <input
               className={styles.textfield}
               ref={emailRef}
               placeholder="Enter your email address"
-              onChange={(e) => {
-                setFrom(e.target.value);
-              }}
+              onChange={(e) => setFrom(e.target.value)}
               type="email"
             />
             <input
               className={styles.textfield}
               ref={subjectRef}
               placeholder="What is this message/email regarding?"
-              onChange={(e) => {
-                setSubject(e.target.value);
-              }}
+              onChange={(e) => setSubject(e.target.value)}
               type="text"
             />
           </div>
@@ -233,9 +265,7 @@ const Outlook = () => {
           draggable={false}
           ref={messageRef}
           className={styles.richtextbox}
-          onChange={(e) => {
-            setMessage(e.target.value);
-          }}
+          onChange={(e) => setMessage(e.target.value)}
           id="text24"
           placeholder="Type your message here...(Share with me something interesting or a feedback?)"
         ></textarea>

@@ -9,7 +9,7 @@ import bin from "../../assets/recycling_bin.png";
 import pdf from "../../assets/pdf.png";
 import github from "../../assets/github.png";
 import cmd from "../../assets/cmd.png";
-import solitare from "../../assets/solitaire.png";
+import winamp from "../../assets/Winamp.png";
 import linkedin from "../../assets/linkedin.png";
 import WinForm from "components/WinForm/WinForm";
 import { useEffect, useState } from "react";
@@ -34,25 +34,24 @@ export default function Home() {
   };
 
   const handleOpenGitHub = () => {
-    window.open("https://github.com/firwer", "_blank", "noreferrer");
+    window.open("https://github.com/abhi-2903", "_blank", "noreferrer");
+  };
+
+  const handleOpenResume = () => {
+    window.open("https://abhi-2903.github.io/Resume/abhimanyu_resume.pdf", "_blank");
   };
 
   const handleOpenLinkedin = () => {
     window.open(
-      "https://www.linkedin.com/in/poh-wei-pin-7b9061183/",
+      "https://www.linkedin.com/in/abhimanyu-chachan/",
       "_blank",
       "noreferrer"
     );
   };
-
-  const handleOpenResume = () => {
-    window.open("./Resume.pdf");
-  };
-
   return (
     <>
       <Head>
-        <title>Wei Pin&apos;s Personal Website - Home Page</title>
+        <title>Abhimanyu &apos;s Porfolio Website </title>
         <meta name="description" content="My Personal Space" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/favicon.ico" />
@@ -106,7 +105,7 @@ export default function Home() {
             appID={7}
             doubleClick={() => void 0}
             title="My Hobbies"
-            img={solitare}
+            img={winamp}
           />
           {Tabs.map((tab, index) => {
             return tab.isMinimized ? (
