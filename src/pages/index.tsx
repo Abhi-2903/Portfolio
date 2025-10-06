@@ -1,4 +1,5 @@
 import Head from "next/head";
+
 import { Inter } from "next/font/google";
 import StartBar from "components/StartBar/StartBar";
 import "xp.css/dist/XP.css";
@@ -24,10 +25,24 @@ import MyWork from "@/programs/MyWork";
 import MsgBox from "components/MsgBox/MsgBox";
 import Welcome from "@/programs/Welcome";
 import MyGallery from "@/programs/MyGallery";
+import ContextMenu from "components/ContextMenu/ContextMenu";
 export default function Home() {
   const Tabs = useSelector((state: RootState) => state.tab.tray);
   const currTabID = useSelector((state: RootState) => state.tab.id);
 
+    const [menuVisible, setMenuVisible] = useState(false);
+  const [menuPos, setMenuPos] = useState({ x: 0, y: 0 });
+
+useEffect(() => {
+  const handleClickAnywhere = () => {
+    setMenuVisible(false); 
+  };
+  window.addEventListener("click", handleClickAnywhere);
+
+  return () => {
+    window.removeEventListener("click", handleClickAnywhere);
+  };
+  }, []);
   const handleRunApp = (e: number) => {
     const newTab = { ...AppDirectory.get(e), id: uuidv4(), zIndex: currTabID };
     store.dispatch(addTab(newTab));
@@ -48,6 +63,14 @@ export default function Home() {
       "noreferrer"
     );
   };
+   const handleContextMenu = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setMenuPos({ x: e.pageX, y: e.pageY });
+    setMenuVisible(true);
+  };
+
+  const closeMenu = () => setMenuVisible(false);
+
   return (
     <>
       <Head>
@@ -56,14 +79,24 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
-      <main className={styles.main}>
+      <main className={styles.main}
+          onContextMenu={handleContextMenu}
+      >
         <div
           style={{
             position: "relative",
             width: "100%",
             height: "100%",
-          }}
+            overflow: "hidden",
+            paddingTop: "5%",
+            }}
         >
+          <ContextMenu
+    x={menuPos.x}
+    y={menuPos.y}
+    onClose={closeMenu}
+    visible={menuVisible}
+  />
           <DesktopIcon
             appID={1}
             doubleClick={() => void 0}
@@ -104,7 +137,7 @@ export default function Home() {
           <DesktopIcon
             appID={7}
             doubleClick={() => void 0}
-            title="My Hobbies"
+            title="Winamp"
             img={winamp}
           />
           {Tabs.map((tab, index) => {

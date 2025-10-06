@@ -1,0 +1,60 @@
+.context-menu {
+  position: absolute;
+  background-color: #eceaea; /* light gray XP background */
+  border: 1px solid #808080; /* gray border */
+  width: 180px;
+  padding: 4px 0;
+  list-style: none;
+  font-family: Tahoma, sans-serif;
+  font-size: 13px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+.context-menu li {
+  padding: 4px 16px;
+  cursor: default;
+  display: flex;
+  justify-content: space-between; /* For arrows/submenu */
+}
+
+.context-menu li:hover {
+  background-color: #0a246a; /* classic XP blue highlight */
+  color: white;
+}
+
+/* Optional: separator line like XP */
+.context-menu .separator {
+  border-top: 1px solid #808080;
+  margin: 2px 0;
+  padding: 0;
+}
+
+/* Submenu indicator arrow */
+.context-menu li .arrow {
+  font-weight: lighter;
+}
+
+/* Submenu container */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #eceaea;
+  border: 1px solid #808080;
+  width: 150px;
+  padding: 4px 0;
+  color: black;;
+  font-family: Tahoma, sans-serif;
+  font-size: 13px;
+}
+
+.context-menu li:hover .submenu {
+  display: block; /* show submenu on hover */
+}
+
+.context-menu li .submenu li:hover {
+  background-color: #0a246a;
+  color: rgb(255, 255, 255);
+}

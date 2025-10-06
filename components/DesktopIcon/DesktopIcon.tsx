@@ -30,7 +30,7 @@ const DesktopIcon = (props: {
   return (
     <Draggable nodeRef={ref} bounds="parent">
       <div
-        style={{ top: props.appID * 90 - 40 }}
+        style={{ top: props.appID * 90 - 60 }}
         onDoubleClick={props.doubleClick}
         onClick={HighlightIcon}
         className={styles.icon}
@@ -43,7 +43,7 @@ const DesktopIcon = (props: {
             <Image
               width={45}
               height={45}
-              style={{ maxWidth: "100%" }}
+              style={{ maxWidth: "100%", paddingTop: "5%" }}
               src={props.img.src}
               alt="icon"
               priority={false}

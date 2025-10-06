@@ -24,7 +24,7 @@ const Outlook = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const API_KEY = process.env.NEXT_PUBLIC_MAILGUN_API;
-  const FROM_EMAIL = "feedback@pohwp.dev";
+  const FROM_EMAIL = "feedback@example.com";
   const TO_EMAIL = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
   const axios = require("axios");
   const captchaRef = React.useRef(null);
