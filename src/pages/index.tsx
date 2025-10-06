@@ -33,6 +33,22 @@ export default function Home() {
     const [menuVisible, setMenuVisible] = useState(false);
   const [menuPos, setMenuPos] = useState({ x: 0, y: 0 });
 
+  useEffect(() => {
+  const audio = new Audio("/sounds/xp-startup.mp3");
+  audio.volume = 0.5;
+
+  // Play sound
+  audio.play().catch((err) => {
+    console.log("Autoplay blocked, try clicking anywhere:", err);
+  });
+
+  // Cleanup: jab component remove ho, audio stop ho jaye
+  return () => {
+    audio.pause();
+    audio.currentTime = 0;
+  };
+}, []);
+
 useEffect(() => {
   const handleClickAnywhere = () => {
     setMenuVisible(false); 
