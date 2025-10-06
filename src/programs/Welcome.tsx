@@ -86,7 +86,7 @@ const Welcome = ({ id }: props) => {
       {!aboutmeView ? (
         <div>
           <h3 className={styles.welcome_text}>
-            Welcome To Wei Pin&apos;s Personal Website
+            Welcome To Abhimanyu&apos;s Personal Website
           </h3>
           <p className={styles.subtitle}>
             Learn more about me by clicking any of the icons below to get
@@ -106,7 +106,7 @@ const Welcome = ({ id }: props) => {
                 tooltip="My Brain Dump"
                 onClick={() => {
                   window.open(
-                    "https://github.com/firwer",
+                    "https://github.com/abhi-2903",
                     "_blank",
                     "noreferrer"
                   );
@@ -118,7 +118,7 @@ const Welcome = ({ id }: props) => {
                 tooltip="Connect with me!"
                 onClick={() => {
                   window.open(
-                    "https://www.linkedin.com/in/poh-wei-pin-7b9061183/",
+                    "https://www.linkedin.com/in/abhimanyu-chachan/",
                     "_blank",
                     "noreferrer"
                   );
@@ -129,7 +129,7 @@ const Welcome = ({ id }: props) => {
                 text={"My Resume"}
                 tooltip="My Curriculum Vitae"
                 onClick={() => {
-                  window.open("./Resume.pdf");
+                  window.open("https://abhi-2903.github.io/Resume/abhimanyu_resume.pdf", "_blank", "noreferrer");
                 }}
               />
             </div>
