@@ -69,12 +69,15 @@ import mr2 from "../../assets/mr2.jpg";
 import mrIcon from "../../assets/mr_icon.png";
 import MS from "../../assets/work/MS.png";
 import MS2 from "../../assets/work/MS2.png";
-import col1 from "../../assets/gallery/0.webp";
+import col1 from "../../assets/gallery/0.webp"
 import col2 from "../../assets/gallery/1.webp";
 import col3 from "../../assets/gallery/2.webp";
 import col4 from "../../assets/gallery/3.webp";
 import col5 from "../../assets/gallery/4.webp";
 import col6 from "../../assets/gallery/5.webp";
+import col7 from "../../assets/gallery/6.webp";
+import col8 from "../../assets/gallery/7.webp";
+import col9 from "../../assets/gallery/8.webp";
 export const TechIcon = {
   REACT:
     "https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB",
@@ -91,40 +94,24 @@ export const TechIcon = {
   GOOGLECLOUDFUNCTIONS:
     "https://img.shields.io/badge/gCloud_Functions-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white",
   JAVA: "https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white",
-  FLUTTER:
-    "https://img.shields.io/badge/flutter-%2302569B.svg?style=for-the-badge&logo=flutter&logoColor=white",
-  VERILOG:
-    "https://img.shields.io/badge/Verilog-%23F7DF1E.svg?style=for-the-badge&logo=verilog&logoColor=rgb(142%2C0%2C39)",
   PYTHON:
     "https://img.shields.io/badge/python-%2314354C.svg?style=for-the-badge&logo=python&logoColor=white",
   C: "https://img.shields.io/badge/C-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white",
   CPP: "https://img.shields.io/badge/C++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&ogoColor=white",
-  ROS: "https://img.shields.io/badge/ROS-%23000000.svg?style=for-the-badge&logo=ros&logoColor=white",
-  ARDUINO:
-    "https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white",
   HTML: "https://img.shields.io/badge/HTML5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white",
   CSS: "https://img.shields.io/badge/CSS3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white",
   JAVASCRIPT:
     "https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E",
-  RASPBERRYPI:
-    "https://img.shields.io/badge/Raspberry%20Pi-C51A4A?style=for-the-badge&logo=Raspberry-Pi",
   REDUX:
     "https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white",
   MATERIALUI:
     "https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white",
-  AUTOCAD:
-    "https://img.shields.io/badge/AutoCAD-0696D7?style=for-the-badge&logo=autodesk&logoColor=white",
-  MBOT: "https://img.shields.io/badge/Makeblock-FF7F00?style=for-the-badge&logo=makeblock&logoColor=white",
   GOOGLECLOUD:
     "https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white",
   MONGODB:
     "https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white",
-  TELEGRAM:
-    "https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white",
   VUEJS:
     "https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D",
-  WEBPACK:
-    "https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=webpack&logoColor=white",
   SUPABASE:
     "https://img.shields.io/badge/Supabase-1E2E3B?style=for-the-badge&logo=supabase&logoColor=white",
   CHATGPT:
@@ -617,5 +604,29 @@ export const PhotoCollection = [
     desc: "Surfing in the middle of a milky ocean",
     date: "17 November 2022",
     img: col6,
+  },
+  {
+    id: 5,
+    title: "Milky Wave",
+    location: "Waiao Beach, Yilan, Taiwan",
+    desc: "Surfing in the middle of a milky ocean",
+    date: "17 November 2022",
+    img: col7,
+  },
+  {
+    id: 6,
+    title: "Milky Wave",
+    location: "Waiao Beach, Yilan, Taiwan",
+    desc: "Surfing in the middle of a milky ocean",
+    date: "17 November 2022",
+    img: col8,
+  },
+  {
+    id: 7,
+    title: "Milky Wave",
+    location: "Waiao Beach, Yilan, Taiwan",
+    desc: "Surfing in the middle of a milky ocean",
+    date: "17 November 2022",
+    img: col9,
   },
 ] as GalleryImage[];
