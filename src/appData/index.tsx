@@ -270,7 +270,7 @@ export const WorkData = [
     title: "Telegram Bot - SDA Crowd Level Report Generator",
     date: "Oct - Nov 2022",
     gitURL: "",
-    techstack: [TechIcon.TELEGRAM, TechIcon.PYTHON],
+    techstack: [ TechIcon.PYTHON],
     gallery: [],
     overview: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel`,
   },
@@ -279,7 +279,7 @@ export const WorkData = [
     title: "Telegram Bot - Digital Goods Management System",
     date: "Oct 2022 - Present",
     gitURL: "",
-    techstack: [TechIcon.TELEGRAM, TechIcon.PYTHON, TechIcon.GOOGLECLOUD],
+    techstack: [TechIcon.PYTHON, TechIcon.GOOGLECLOUD],
     gallery: [MS, MS2],
     overview: `I have developed a cloud inventory management system on gCloud with a Telegram bot 
     interface to help manage my online software distribution business. The system is able to retrieve,
@@ -292,7 +292,7 @@ export const WorkData = [
     title: "Audio Visual System BASYS3 FPGA",
     date: "Oct - Nov 2022",
     gitURL: "https://github.com/firwer/EE2026-FPGA-Project",
-    techstack: [TechIcon.VERILOG, TechIcon.PYTHON],
+    techstack: [ TechIcon.PYTHON],
     gallery: [
       ee2026_5,
       ee2026_1,
@@ -330,9 +330,6 @@ export const WorkData = [
     gitURL: "https://github.com/firwer/CG2111A-Alex-Lidar-Project",
     techstack: [
       TechIcon.CPP,
-      TechIcon.ROS,
-      TechIcon.ARDUINO,
-      TechIcon.RASPBERRYPI,
     ],
     gallery: [cg1_2, cg2_2, cg3_2, cg4_2, cg5_2, cg6_2],
     overview: `We created a robot, named Alex, that is intended to be a “search and rescue” robot that
@@ -351,7 +348,7 @@ export const WorkData = [
     title: "CG1111A - mBot Vehicle Maze Navigator",
     date: "Aug - Nov 2021",
     gitURL: "",
-    techstack: [TechIcon.CPP, TechIcon.MBOT],
+    techstack: [TechIcon.CPP],
     gallery: [cg6, cg1, cg2, cg3, cg4, cg5],
     overview: `Our team and I built an mBot vehicle that is able to navigate through a maze and perform specific 
       action based on the colour of the ground it is on. The mBot is able to detect the colour of the 
@@ -363,7 +360,7 @@ export const WorkData = [
     title: "EG1311",
     date: "Aug - Nov 2021",
     gitURL: "",
-    techstack: [TechIcon.CPP, TechIcon.ARDUINO, TechIcon.AUTOCAD],
+    techstack: [TechIcon.CPP],
     gallery: [eg_1, eg_2, eg_3, eg_4, eg_5, eg_6],
     overview: `My team and I built a robot vehicle powered using Arduino and 4 DC motors. Our vehicle is able to 
       move through a series of incline ramps, stop at a designated point using proximity sensor and fire 
@@ -396,7 +393,7 @@ export const WorkData = [
     title: "DSTA CodeEXP Hackathon 2022 - My Army Pal",
     date: "Jun 2022",
     gitURL: "https://github.com/firwer/dstahackathon",
-    techstack: [TechIcon.FLUTTER, TechIcon.FIREBASE],
+    techstack: [TechIcon.FIREBASE],
     gallery: [dsta_7, dsta_1, dsta_2, dsta_3, dsta_4, dsta_5, dsta_6, dsta_8],
     overview: `MyArmyPal serves to be an all in one service for our service men. It seeks to provide convenience 
       and useful features just one tap away. Its main features include an IPPT Calculator, reservist 
@@ -430,7 +427,6 @@ export const WorkData = [
     gitURL: "https://github.com/firwer/supercanvas",
     techstack: [
       TechIcon.TYPESCRIPT,
-      TechIcon.WEBPACK,
       TechIcon.MATERIALUI,
       TechIcon.CSS,
     ],
